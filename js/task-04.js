@@ -5,17 +5,11 @@
 const counterDecrementEl = document.querySelector('button[data-action="decrement"]');
 const counterIncrementEl = document.querySelector('button[data-action="increment"]');
 const counterNumberEl = document.querySelector("#value");
-let counterValue = 0;
-counterNumberEl.textContent = counterValue;
+let counterValue = counterNumberEl.textContent;
 
-const increaseFunc = () => {
-	counterNumberEl.textContent = counterValue + 1;
-	return (counterValue += 1);
-};
-const decreaseFunc = () => {
-	counterNumberEl.textContent = counterValue - 1;
-	return (counterValue -= 1);
-};
+const increaseFunc = () => (counterNumberEl.textContent = Number(counterNumberEl.textContent) + 1);
+
+const decreaseFunc = () => (counterNumberEl.textContent = Number(counterNumberEl.textContent) - 1);
 
 increaseFunc();
 decreaseFunc();
