@@ -1,3 +1,5 @@
 {
 	"liveServer.settings.port": 5501
 }
+
+//?why is it important to set the number of the port differnt from default
