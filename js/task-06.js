@@ -5,7 +5,7 @@
 
 const inputEl = document.querySelector("#validation-input");
 
-const checkQuantityOfSymbols = (event) => {
+const checkQuantityOfSymbols = () => {
 	if (inputEl.value.length > inputEl.dataset.length) {
 		inputEl.classList.add("valid");
 
