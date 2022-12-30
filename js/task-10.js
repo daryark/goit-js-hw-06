@@ -7,6 +7,47 @@
 
 //f.e Створи функцію destroyBoxes(), яка очищає вміст div#boxes, у такий спосіб видаляючи всі створені елементи.
 
+//c: сделать так же, как в transactins (in tasks-js), только генерить разметку не сразу, а при клике и получении кол-ва
+
 function getRandomHexColor() {
 	return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
+
+const numEl = document.querySelector('input[type = "number"]');
+const createEl = document.querySelector("[data-create]");
+const destroyEl = document.querySelector("[data-destroy]");
+const containerEl = document.querySelector("#boxes");
+
+let numElValue = 0; // saves input's value
+function check(event) {
+	numElValue = event.target.value;
+}
+
+const elementsArr = []; //saves arr of els to push in html
+function createBoxes() {
+	destroyBoxes();
+
+	for (let i = 1; i <= numElValue; i += 1) {
+		const currentColor = getRandomHexColor();
+		let amount = 30;
+
+		i === 1 ? amount : (amount += (i - 1) * 10);
+
+		elementsArr.push(
+			`<div style = "width: ${amount}px; height: ${amount}px; background-color: ${currentColor}"></div>`
+		);
+	}
+
+	return containerEl.insertAdjacentHTML("beforeend", elementsArr.join(""));
+}
+
+function destroyBoxes() {
+	if (containerEl.children.length > 0) {
+		containerEl.innerHTML = "";
+		elementsArr.splice(0, elementsArr.length);
+	}
+}
+
+numEl.addEventListener("change", check);
+createEl.addEventListener("click", createBoxes);
+destroyEl.addEventListener("click", destroyBoxes);
