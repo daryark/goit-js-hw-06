@@ -24,12 +24,11 @@ function check(event) {
 }
 
 const elementsArr = []; //saves arr of els to push in html
-function createBoxes() {
+function createBoxes({ amount = 30 }) {
 	destroyBoxes();
 
 	for (let i = 1; i <= numElValue; i += 1) {
 		const currentColor = getRandomHexColor();
-		let amount = 30;
 
 		i === 1 ? amount : (amount += (i - 1) * 10);
 
