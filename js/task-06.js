@@ -6,9 +6,10 @@
 const inputEl = document.querySelector("#validation-input");
 
 const checkQuantityOfSymbols = () => {
-	if (inputEl.value.length > inputEl.dataset.length) {
+	console.log(inputEl.dataset.length);
+	console.log(inputEl.value.length);
+	if (inputEl.value.length >= inputEl.dataset.length) {
 		inputEl.classList.add("valid");
-
 		if (inputEl.classList.contains("invalid")) {
 			inputEl.classList.remove("invalid");
 		}

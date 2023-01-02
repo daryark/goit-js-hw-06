@@ -7,8 +7,6 @@
 
 //f.e Створи функцію destroyBoxes(), яка очищає вміст div#boxes, у такий спосіб видаляючи всі створені елементи.
 
-//c: сделать так же, как в transactins (in tasks-js), только генерить разметку не сразу, а при клике и получении кол-ва
-
 function getRandomHexColor() {
 	return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
