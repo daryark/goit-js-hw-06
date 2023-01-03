@@ -6,9 +6,7 @@
 const inputEl = document.querySelector("#validation-input");
 
 const checkQuantityOfSymbols = () => {
-	console.log(inputEl.dataset.length);
-	console.log(inputEl.value.length);
-	if (inputEl.value.length >= inputEl.dataset.length) {
+	if (inputEl.value.length === Number(inputEl.dataset.length)) {
 		inputEl.classList.add("valid");
 		if (inputEl.classList.contains("invalid")) {
 			inputEl.classList.remove("invalid");
@@ -21,7 +19,7 @@ const checkQuantityOfSymbols = () => {
 		inputEl.classList.remove("valid");
 	}
 
-	// inputEl.classList.add(inputEl.value.length > 6 ? "valid" : "invalid"); //variant without class toggle
+	// inputEl.classList.add(inputEl.value.length === 6 ? "valid" : "invalid"); //variant without class toggle
 };
 
 inputEl.addEventListener("blur", checkQuantityOfSymbols);
